@@ -1,17 +1,18 @@
-*::before,
-*::after {
-    box-sizing: border-box;
+*, *::before, *::after {
+	box-sizing: border-box; 
+	margin: 0;
+	padding: 0;
+} 
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    background-color: #a8bd90;
 }
 
 .main-card { 
-    margin-top: 120px;
+    margin-top: 150px;
     height: 900px;
     width: 1200px; 
-}
-
-body {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
-  background-color: #a8bd90;
 }
 
 #card-header { 
