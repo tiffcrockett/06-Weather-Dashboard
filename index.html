@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <title>Weather Dashboard</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
+        <link rel="stylesheet" href="./style.css"> 
+        <script src="https://kit.fontawesome.com/7ab9492083.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <main class="main-card">
+                <div class="row"> 
+                    <div class="col-md-12" id="card-header"><h3>Weather Dashboard</h3></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4" id="aside"> 
+                        <div class="form-inline">
+                            <label>Search for a City:</label>
+                                <input type="text" id="cityName" style="width: 255px;"/>&nbsp;
+                                <button type="button" id="addCity" style="background-color:#4381dd"><i class="fas fa-search"></i></button> 
+                        </div> 
+                        <ul id="cityList"></ul>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card" id="main-weather">
+                            <div class="row" id="top">
+                                <div id="city">City</div>&nbsp;
+                                <div id="todaysdate">date</div>&nbsp;
+                                <div id="weather-icon">icon</div>&nbsp;
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <div id="tempF">Termperature:</div>
+                            <div id="humid">Humidity:</div>
+                            <div id="wind">Wind Speed:</div>
+                            <div id="uvi">UV Index:</div> 
+                            <!-- JavaScript color UV index background by warning -->
+                        </div>
+                        <br>
+                        <h5>5-Day Forecast</h5> 
+                        <div class="row>">
+                            <div class="card-group" id="forecast">  
+                                <div class="card" id="daily">
+                                    <div id="date">date</div>
+                                    <div id="icon">icon</div> 
+                                    <div id="temp">temp</div>
+                                    <div id="humid">humidity</div>    
+                                </div> 
+                                <div class="card" id="daily">
+                                    <div id="date">date</div>
+                                    <div id="icon">icon</div> 
+                                    <div id="temp">temp</div>
+                                    <div id="humid">humidity</div>    
+                                </div> 
+                                <div class="card" id="daily">
+                                    <div id="date">date</div>
+                                    <div id="icon">icon</div> 
+                                    <div id="temp">temp</div>
+                                    <div id="humid">humidity</div>    
+                                </div> 
+                                <div class="card" id="daily">
+                                    <div id="date">date</div>
+                                    <div id="icon">icon</div> 
+                                    <div id="temp">temp</div>
+                                    <div id="humid">humidity</div>    
+                                </div> 
+                                <div class="card" id="daily">
+                                    <div id="date">date</div>
+                                    <div id="icon">icon</div> 
+                                    <div id="temp">temp</div>
+                                    <div id="humid">humidity</div>    
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>            
+                </div>
+                <footer><br>
+                    <div class="footer" style="text-align:center"> 
+                        <h7> Weather Dashboard ~ tiffanyc ~
+                            &copy; 2020 All rights reserved.</h7>
+                    </div> 
+                </footer>  
+            </div>
+        </div>  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+		<script src="./script.js"></script>       
+    </body>
+</html> 
