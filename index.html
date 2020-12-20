@@ -18,25 +18,26 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4" id="aside"> 
-                        <div class="form-inline">
-                            <label>Search for a City:</label>
-                                <input type="text" id="cityName" style="width: 255px;"/>&nbsp;
-                                <button type="button" id="addCity" style="background-color:#4381dd"><i class="fas fa-search"></i></button> 
-                        </div> 
-                        <ul id="cityList"></ul>
+                        <form class="form-inline" name="input-city-name">
+                            <label for="city-input">Search for a City:</label>
+                                <input type="text" id="city-input" name="listCity" style="width: 210px;"/>&nbsp;
+                                <!-- button to trigger AJAX call -->
+                                <input id="add-city" type="submit" value="Search">
+                        </form> 
+                        <!-- city names go here -->
+                        <ul id="city-list"></ul>     
                     </div>
                     <div class="col-md-8">
                         <div class="card" id="main-weather">
                             <div class="row" id="top">
-                                <div id="city">City</div>&nbsp;
-                                <div id="todaysdate">date</div>&nbsp;
-                                <div id="weather-icon">icon</div>&nbsp;
-                            </div>
-                            <br>
-                            <br>
-                            <br>
+                                <h1 class="city"></h1>&nbsp;
+                                <div id="todaysdate"></div>&nbsp;
+                                <div id="todaysicon"></div>&nbsp;
+                            </div> 
+                            <br> 
+                            <div id=lat></div>
                             <div id="tempF">Termperature:</div>
-                            <div id="humid">Humidity:</div>
+                            <div id="humidty">Humidity:</div>
                             <div id="wind">Wind Speed:</div>
                             <div id="uvi">UV Index:</div> 
                             <!-- JavaScript color UV index background by warning -->
@@ -46,35 +47,35 @@
                         <div class="row>">
                             <div class="card-group" id="forecast">  
                                 <div class="card" id="daily">
-                                    <div id="date">date</div>
-                                    <div id="icon">icon</div> 
-                                    <div id="temp">temp</div>
-                                    <div id="humid">humidity</div>    
+                                    <div id="dailydate">date</div>
+                                    <div id="dailyicon">icon</div> 
+                                    <div id="dailytemp">temp</div>
+                                    <div id="dailyhumid">humidity</div>    
                                 </div> 
                                 <div class="card" id="daily">
-                                    <div id="date">date</div>
-                                    <div id="icon">icon</div> 
-                                    <div id="temp">temp</div>
-                                    <div id="humid">humidity</div>    
+                                    <div id="dailydate">date</div>
+                                    <div id="dailyicon">icon</div> 
+                                    <div id="dailytemp">temp</div>
+                                    <div id="dailyhumid">humidity</div>    
                                 </div> 
                                 <div class="card" id="daily">
-                                    <div id="date">date</div>
-                                    <div id="icon">icon</div> 
-                                    <div id="temp">temp</div>
-                                    <div id="humid">humidity</div>    
+                                    <div id="dailydate">date</div>
+                                    <div id="dailyicon">icon</div> 
+                                    <div id="dailytemp">temp</div>
+                                    <div id="dailyhumid">humidity</div>    
                                 </div> 
                                 <div class="card" id="daily">
-                                    <div id="date">date</div>
-                                    <div id="icon">icon</div> 
-                                    <div id="temp">temp</div>
-                                    <div id="humid">humidity</div>    
+                                    <div id="dailydate">date</div>
+                                    <div id="dailyicon">icon</div> 
+                                    <div id="dailytemp">temp</div>
+                                    <div id="dailyhumid">humidity</div>    
                                 </div> 
                                 <div class="card" id="daily">
-                                    <div id="date">date</div>
-                                    <div id="icon">icon</div> 
-                                    <div id="temp">temp</div>
-                                    <div id="humid">humidity</div>    
-                                </div>
+                                    <div id="dailydate">date</div>
+                                    <div id="dailyicon">icon</div> 
+                                    <div id="dailytemp">temp</div>
+                                    <div id="dailyhumid">humidity</div>    
+                                </div>                                
                             </div> 
                         </div>
                     </div>
@@ -88,7 +89,7 @@
                 </footer>  
             </div>
         </div>  
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="./assets/js/script.js"></script>       
     </body>
 </html> 
