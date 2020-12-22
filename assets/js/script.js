@@ -26,7 +26,7 @@ $(document).ready(function() {
                 // $("#uvi").text("UV Index:" + response.current.uvi); 
 
                 var queryURL2 = "http://api.openweathermap.org/data/2.5/forecast/daily/?q=" + city + "&units=imperial&cnt=5&appid=12453634a0c3823fc0a03953fcfff02b";           
-                console.log(queryURL2);
+                console.log(queryURL2)
 
                 $.ajax({ 
                     url:queryURL2,
@@ -34,13 +34,14 @@ $(document).ready(function() {
                 }).then(function(response) { 
                     console.log(response)
 
-                    var forecast = [];
                     for (var i = 0; i < 5; i++) {
                         $("#date").text(new Date(response.list[i].dt).toLocaleDateString('en-Us', {weekday: 'long'})), 
-                        $("#icon").attr("src",`http://openweathermap.org/img/wn/`) + response.list[i].weather[i].icon +"png";
+                        $("#icon").attr("src",`http://openweathermap.org/img/wn/`) + response.list[i].weather[0].icon +"png";
                         $("#temp").text(Math.round(response.list[i].temp.day) + " Degrees F");
                         $("#humid").text(response.list[i].humidity + "% Humidity");
-                    }   console.log(forecast)
+                        
+                        $("#weatherForecast").push(date[i],icon[i],temp[i],humid[i]);
+                    }  
                 });
 
             var newCity = $("input[name=listCity]").val();
