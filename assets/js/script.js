@@ -1,53 +1,65 @@
 
-$("document").ready(function() { 
+$(document).ready(function() { 
 
-    $("#add-city").on("click", function(event){
-        event.preventDefault(); 
+    function displayWeather() { 
 
-        var city = $("#city-input").val();
+        $("#add-city").on("click", function(event){
+            event.preventDefault(); 
 
-         var queryURL ="http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=12453634a0c3823fc0a03953fcfff02b";
-         
-        $.ajax({
-            url: queryURL,
-            method: "GET" 
-        }).then(function(response) { 
-            console.log(queryURL);
+            var city = $("#city-input").val();
 
-            // var lat = $("<#lat>").text(response.coord.lat);
-            // var lon = $("<#lon>").text(response.coord.lon);
-            // $("#city-list").text(JSON.stringify(response));
-            $(".city").html("<h1>" + response.name + " Weather Details</h1>");
-            $("#todaysdate").text(response.dt_txt);
+            var queryURL = "http://api.openweathermap.org/data/2.5/weather/?q=" + city + "&units=imperial&appid=12453634a0c3823fc0a03953fcfff02b";
             
-            var tempF = (response.main.temp - 273.15) * 1.80 + 32;
-            $("#tempF").text("Temperature (F): " + tempF.toFixed(2)); 
+            $.ajax({ 
+                url:queryURL,
+                method: "GET", 
+            }).then(function(response) { 
+                console.log(response);
 
-            $("#humidty").text("Humidity: " + response.main.humidity + " %");
-            $("#wind").text("Wind Speed: " + response.wind.speed + " MPH"); 
-            $("city-list").text(response.name); 
-        }) 
+                $(".city").html("<h2>" + response.name + " Weather Details</h2>");
+                $("#current-date").text(new Date(response.dt).toLocaleDateString('en-US', {weekday: 'long'}));
+                $("#nowicon").attr("src",`http://openweathermap.org/img/wn/`) +response.weather.icon+"png"
+                $("#tempF").text("Temperature (F): " + response.main.temp);
+                $("#humidty").text("Humidity: " + response.main.humidity + " %");
+                $("#wind").text("Wind Speed: " + response.wind.speed + " MPH"); 
+                $("city-list").text(response.name);  
+                // $("#uvi").text("UV Index:" + response.current.uvi); 
 
-        var lat = 
+                var queryURL2 = "http://api.openweathermap.org/data/2.5/forecast/daily/?q=" + city + "&units=imperial&cnt=5&appid=12453634a0c3823fc0a03953fcfff02b";           
+                console.log(queryURL2);
 
-        var queryURL2 = "https://api.openweathermap.org/data/2.5/onecall?" + lat + "=" + "&" + lon + "=&exclude=minutely,hourly,alerts&appid=6513ce13c2a08e24c65cc6c032698552"
-        $.ajax({
-            url: queryURL2,
-            method: "GET" 
-        }).then(function(response) { 
-            console.log(response); 
+                $.ajax({ 
+                    url:queryURL2,
+                    method: "GET", 
+                }).then(function(response) { 
+                    console.log(response)
 
-            $("#uvi").text("UV Index:" + response.daily.uvi);
-            $("#dailydate").text(response.daily.dt);
-            $("#daiytemp").text(response.daily.temp.day);
-            $("#dailyhumid").text(response.daily.humidity);
+                    var forecast = [];
+                    for (var i = 0; i < 5; i++) {
+                        $("#date").text(new Date(response.list[i].dt).toLocaleDateString('en-Us', {weekday: 'long'})), 
+                        $("#icon").attr("src",`http://openweathermap.org/img/wn/`) + response.list[i].weather[i].icon +"png";
+                        $("#temp").text(Math.round(response.list[i].temp.day) + " Degrees F");
+                        $("#humid").text(response.list[i].humidity + "% Humidity");
+                    }   console.log(forecast)
+                });
+
+            var newCity = $("input[name=listCity]").val();
+            $("ul").append("<li>" + newCity + "</li>"); 
+
         });
 
-        var newCity = $("input[name=listCity]").val();
-        $("ul").append("<li>" + newCity + "</li>");
-    }); 
-    
-    
-
-
-});     
+            var uvi= $("#uvi").val();
+            if(uvi > 11) {
+                $("#uvi").css({"background-color":"#8e44ad", "color":"#fff"});
+            } else if (uvi > 7 && uvi < 11) {
+                $("#uvi").css({"background-color":"#e74c3c", "color":"#fff"});
+            } else if (uvi > 5 && uvi < 9 ){
+                $("#uvi").css({"background-color":"#f39c12"});
+            } else if (uvi > 2 && uvi < 7) {
+                $("#uvi").css({"background-color":"#f4d03f"});
+            } else {
+                $("#uvi").css({"background-color":"#27ae60", "color":"#fff"})
+            };  
+        }); 
+    } displayWeather()
+});

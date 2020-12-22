@@ -14,12 +14,12 @@
         <div class="container">
             <main class="main-card">
                 <div class="row"> 
-                    <div class="col-md-12" id="card-header"><h3>Weather Dashboard</h3></div>
+                    <div class="col-md-12" id="card-header"><h2>Weather Dashboard</h2></div>
                 </div>
                 <div class="row">
                     <div class="col-md-4" id="aside"> 
                         <form class="form-inline" name="input-city-name">
-                            <label for="city-input">Search for a City:</label>
+                            <label for="city-input">Search for a City:&nbsp </label>
                                 <input type="text" id="city-input" name="listCity" style="width: 210px;"/>&nbsp;
                                 <!-- button to trigger AJAX call -->
                                 <input id="add-city" type="submit" value="Search">
@@ -31,11 +31,10 @@
                         <div class="card" id="main-weather">
                             <div class="row" id="top">
                                 <h1 class="city"></h1>&nbsp;
-                                <div id="todaysdate"></div>&nbsp;
-                                <div id="todaysicon"></div>&nbsp;
+                                <div id="current-date"></div>&nbsp;
+                                <div id="icon"><img id="wicon" src="" alt="weather icon"></div>&nbsp;
                             </div> 
                             <br> 
-                            <div id=lat></div>
                             <div id="tempF">Termperature:</div>
                             <div id="humidty">Humidity:</div>
                             <div id="wind">Wind Speed:</div>
@@ -44,37 +43,37 @@
                         </div>
                         <br>
                         <h5>5-Day Forecast</h5> 
-                        <div class="row>">
+                        <div class="row weatherForecast>">
                             <div class="card-group" id="forecast">  
-                                <div class="card" id="daily">
-                                    <div id="dailydate">date</div>
-                                    <div id="dailyicon">icon</div> 
-                                    <div id="dailytemp">temp</div>
-                                    <div id="dailyhumid">humidity</div>    
+                                <div class="card day" id="daily">
+                                    <div id="date"></div>
+                                    <div id="icon"></div> 
+                                    <div id="temp"></div>
+                                    <div id="humid"></div>    
                                 </div> 
-                                <div class="card" id="daily">
-                                    <div id="dailydate">date</div>
-                                    <div id="dailyicon">icon</div> 
-                                    <div id="dailytemp">temp</div>
-                                    <div id="dailyhumid">humidity</div>    
+                                <div class="card day" id="daily">
+                                    <div id="date"></div>
+                                    <div id="icon"></div> 
+                                    <div id="temp"></div>
+                                    <div id="humid"></div>    
                                 </div> 
-                                <div class="card" id="daily">
-                                    <div id="dailydate">date</div>
-                                    <div id="dailyicon">icon</div> 
-                                    <div id="dailytemp">temp</div>
-                                    <div id="dailyhumid">humidity</div>    
+                                <div class="card day" id="daily">
+                                    <div id="date"></div>
+                                    <div id="icon"></div> 
+                                    <div id="temp"></div>
+                                    <div id="humid"></div>    
                                 </div> 
-                                <div class="card" id="daily">
-                                    <div id="dailydate">date</div>
-                                    <div id="dailyicon">icon</div> 
-                                    <div id="dailytemp">temp</div>
-                                    <div id="dailyhumid">humidity</div>    
+                                <div class="card day" id="daily">
+                                    <div id="date"></div>
+                                    <div id="icon"></div> 
+                                    <div id="temp"></div>
+                                    <div id="humid"></div>    
                                 </div> 
-                                <div class="card" id="daily">
-                                    <div id="dailydate">date</div>
-                                    <div id="dailyicon">icon</div> 
-                                    <div id="dailytemp">temp</div>
-                                    <div id="dailyhumid">humidity</div>    
+                                <div class="card day" id="daily">
+                                    <div id="date"></div>
+                                    <div id="icon"></div> 
+                                    <div id="temp"></div>
+                                    <div id="humid"></div>    
                                 </div>                                
                             </div> 
                         </div>
