@@ -32,7 +32,9 @@ $(document).ready(function() {
                     url:queryURL2,
                     method: "GET", 
                 }).then(function(response) { 
-                    console.log(response)
+                    console.log(response) 
+
+                    forecast = [];
 
                     for (var i = 0; i < 5; i++) {
                         $("#date").text(new Date(response.list[i].dt).toLocaleDateString('en-Us', {weekday: 'long'})), 
