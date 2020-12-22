@@ -10,7 +10,7 @@ This application is my second JQuery application. The dashboard partially functi
 Current and future weather forecasts are important to everyday life.  Daily people look to access that information to plan commutes, travel and activities.  The mobile-first feature of the Weather Dashboard makes it useful to users.  The current design is flat.  Aesthetic enhancements would be good improvements to the application.
 
 # Screenshot
-[!image](https://github.com/tiffcrockett/06-Weather-Dashboard/blob/main/assets/images/Weather-Dashboard.png?)
+![image](https://github.com/tiffcrockett/06-Weather-Dashboard/blob/main/assets/images/Weather-Dashboard.png?)
 
 
 
