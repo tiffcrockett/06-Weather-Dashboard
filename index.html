@@ -26,12 +26,13 @@
                         </form> 
                         <!-- city names go here -->
                         <ul id="city-list"></ul>     
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card" id="main-weather">
-                            <div class="row" id="top">
+                    </div> 
+                    <!-- current weather here -->
+                    <div class="col-md-8" id="weather-container">
+                        <div class="card" id="current-weather">
+                            <div class="row" id="current-display-top">
                                 <h1 class="city"></h1>&nbsp;
-                                <div id="current-date"></div>&nbsp;
+                                <div id="current-day"></div>&nbsp;
                                 <div id="icon"><img id="wicon" src="" alt="weather icon"></div>&nbsp;
                             </div> 
                             <br> 
@@ -41,11 +42,11 @@
                             <div id="uvi">UV Index:</div> 
                             <div id="lat"></div>
                             <div id="lon"></div>
-                            <!-- JavaScript color UV index background by warning -->
                         </div>
-                        <br>
-                        <h5>5-Day Forecast</h5>  
-                        <div id="weatherForecast" class="inline"></div>
+                        <br> 
+                        <!-- forecast here -->
+                        <h5 id="five-day">5-Day Forecast</h5>  
+                        <div id="weatherForecast"></div>
 
                     </div>
                 </div>             

@@ -1,12 +1,33 @@
 
-$(document).ready(function() { 
+$(document).ready(function() {  
 
-    function displayWeather() { 
+    var cityHistory = (localStorage.getItem("cityHistory") || "").split(",");
+    console.log(cityHistory);
+    for (var i = 0; i < cityHistory.length; i++){
+        if(cityHistory[i]) {
+            $("ul").append("<li>" + cityHistory[i] + "</li>"); 
+        };  
+    };
+    
+    $("#current-weather").hide();
+    $("#five-day").hide();
 
         $("#add-city").on("click", function(event){
             event.preventDefault(); 
 
-            var city = $("#city-input").val();
+            var searchedCity = $("#city-input").val().trim(); 
+            $("#weatherForecast").empty();
+            displayWeather(searchedCity); 
+        });  
+
+        $("ul li").on("click", function(){
+            var pastCity = $(this).text();
+            $("#weatherForecast").empty();
+            displayWeather(pastCity);
+        }); 
+
+
+        function displayWeather(city){
 
             var queryURL = "http://api.openweathermap.org/data/2.5/weather/?q=" + city + "&units=imperial&appid=12453634a0c3823fc0a03953fcfff02b";
             
@@ -16,23 +37,24 @@ $(document).ready(function() {
             }).then(function(response) { 
                 console.log(response);
 
-                $(".city").html("<h2>" + response.name + " Weather Details</h2>");
-                $("#current-date").text(new Date(response.dt).toLocaleDateString('en-US', {weekday: 'long'}));
-                $("#nowicon").attr("src",`http://openweathermap.org/img/wn/`) +response.weather.icon +"png"
-                $("#tempF").text("Temperature (F): " + response.main.temp);
+                $(".city").html("<h3>" + response.name + " Weather Details</h3>"); 
+                $("#current-day").text(new Date(response.dt*1000).toLocaleDateString('en-US', {weekday: 'long'}));
+                $("#wicon").attr("src",`http://openweathermap.org/img/wn/` + response.weather[0].icon +".png");
+                $("#tempF").text("Temperature (F): " + (Math.round(response.main.temp)));
                 $("#humidty").text("Humidity: " + response.main.humidity + " %");
                 $("#wind").text("Wind Speed: " + response.wind.speed + " MPH"); 
                 $("city-list").text(response.name);  
 
                 // $("#uvi").text("UV Index:" + response.current.uvi); 
 
+                
                 // var lat = $("lat").val();
                 // var lon = $("lon").val();
 
-                // var queryURL2 = "httyp://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&cnt=5&units=imperial&appid=12453634a0c3823fc0a03953fcfff02b";    
-                // console.log(queryURL2)
+                // var queryURL3 = "httyp://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&cnt=5&units=imperial&appid=12453634a0c3823fc0a03953fcfff02b";    
+                // console.log(queryURL3)
                 
-                var queryURL2 = "http://api.openweathermap.org/data/2.5/forecast/daily/?q=" + city + "&units=imperial&cnt=5&appid=12453634a0c3823fc0a03953fcfff02b";           
+                var queryURL2 = "http://api.openweathermap.org/data/2.5/forecast/daily/?q=" + city + "&units=imperial&cnt=6&appid=12453634a0c3823fc0a03953fcfff02b";           
                 console.log(queryURL2)
 
                 $.ajax({ 
@@ -42,29 +64,39 @@ $(document).ready(function() {
                     console.log(response) 
                     console.log(response.list)  
 
-                    for(var i = 0; i < response.list.length; i++) {
+                    for(var i = 1; i < 6; i++) {
 
-                    var displayDiv = $("<div>").addClass("daily ");
-                    var card = $("<div>").addClass("card col-2 h-25 bg-primary text-white");
+                    var displayDiv = $("<div>").addClass("daily");
+                    var card = $("<div>").addClass("card bg-primary text-white");
                     var cardBody = $("<div>").addClass("card-body");
-                    var date = $("<h3>").addClass("card-text").text(new Date(response.list[i].dt).toLocaleDateString('en-Us', {weekday: 'long'}));
-                    var icon = $("<img>").attr("src", "http://openweathermap.org/img/w/") + response.list[i].weather[0].icon +"png";
+                    var date = $("<h4></h4>").addClass("card-text").text(new Date(response.list[i].dt*1000).toLocaleDateString('en-Us', {weekday: 'long'}));
+                    var icon = $("<img>").attr("src","http://openweathermap.org/img/wn/" + response.list[i].weather[0].icon +".png");
                     var temp = $("<div>").addClass("card-text").text(Math.round(response.list[i].temp.day) + " Degrees F");
-                    var humid = $("<div>").addClass("card-text").text(response.list[i].humidity);
+                    var humid = $("<div>").addClass("card-text").text(response.list[i].humidity + "% Humidity");
 
                     // * append elements to weatherForecast div
                     cardBody.append(date, icon, temp, humid);
                     card.append(cardBody);
                     displayDiv.append(card);
-                    $("#weatherForecast").append(displayDiv)
-                    }
+                    $("#weatherForecast").append(displayDiv); 
+
+                    $("#current-weather").show();
+                    $("five-day").show();
+                    };
+
+                }); 
+
+            var cityHistory = (localStorage.getItem("cityHistory") || "").split(",");
+            var doesCityExist = cityHistory.findIndex(function(item){
+                return item.toLowerCase() === city.toLowerCase();        
+                 }) > -1;
+            if(!doesCityExist){
+                $("ul").append("<li>" + city + "</li>");  
+                var storedCities = [city, cityHistory];
+                localStorage.setItem("cityHistory", storedCities);
+            }     
             
-                });
-
-            var newCity = $("input[name=listCity]").val();
-            $("ul").append("<li>" + newCity + "</li>"); 
-
-        });
+        }); 
 
             var uvi= $("#uvi").val();
             if(uvi > 11) {
@@ -76,8 +108,7 @@ $(document).ready(function() {
             } else if (uvi > 2 && uvi < 7) {
                 $("#uvi").css({"background-color":"#f4d03f"});
             } else {
-                $("#uvi").css({"background-color":"#27ae60", "color":"#fff"})
+                $("#uvi").css({"background-color":"#27ae60", "color":"#fff"});
             };  
-        }); 
-    } displayWeather();
+    }; 
 });

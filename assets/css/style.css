@@ -28,7 +28,7 @@ body {
     width:435px;
     height:650px;
     padding-top: 15px;
-    background-color: #f8f7f4;
+    background-color: #bdbdbd;
     font-size: small;
 }  
 
@@ -61,36 +61,42 @@ ul li {
 
 li:hover {
     cursor:pointer;
-}
+} 
 
-.col-md-8 {
+#weather-container {
     background-color: #ffff;
 }
 
-#main-weather { 
-    padding: 30px 15px;
+#current-weather { 
+    padding: 30px 25px;
     width: 765px;
     height: 400px;
     line-height: 35px;
-} 
+    background-color: #e9d182;
+}  
 
-#forecast {
-    display: flex;
-} 
-
-#top {
+#current-display-top {
     display: flex;
     padding: 15px;
 }
 
-#todaysdate {
+#current-day{
     font-size: 14px;
 } 
 
 #uvi {
     width: 95px;
     padding: 5px;
-} 
+}  
+
+#weatherForecast {
+    display: flex;
+}  
+
+.daily {
+    margin: 7px;
+}
+
 
 @media (max-width: 568px) {  
 
