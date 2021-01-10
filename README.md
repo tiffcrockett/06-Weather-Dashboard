@@ -42,7 +42,7 @@ No prior installation is required to properly use the Weather Dashobard applicat
 ## Technologies-Used
 
 * [Open Weather Map api](https://openweathermap.org/api)
-* [Bootstrap Framework](https://www.w3schools.com/w3css/default.asp)
+* [Bootstrap Framework](https://getbootstrap.com/)
 
 ## Deployed-Link
 
