@@ -8,28 +8,29 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
         <link rel="stylesheet" href="./assets/css/style.css"> 
-        <script src="https://kit.fontawesome.com/7ab9492083.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="container">
+        <section class="container">
             <main class="main-card">
-                <div class="row"> 
+                <section class="row"> 
                     <div class= "dash-header"><h4>Weather Dashboard</h4></div>
-                </div>
-                <div class="row" id="dashboard">
-                    <div class="col-sm-3" id="aside"> 
+                </section>
+                <section class="row" id="dashboard">
+                    <aside class="col-sm-3" id="aside"> 
                         <form class="form-inline" name="input-city-name">
                             <label for="city-input">Search for a City:&nbsp </label>
-                                <input type="text" id="city-input" name="listCity"/>&nbsp;
+                                <input type="text" id="city-input" name="listCity">
                                 <!-- button to trigger AJAX call -->
-                                <input id="add-city" type="submit" value="Search">
+                                <button id="add-city" type="submit">Search</i></button>
+                                <!-- reset- clear local storage -->
+                                <button id="clear" type="clear">Clear History</button>
                         </form> 
                         <!-- city names go here -->
                         <ul id="city-list"></ul>     
-                    </div> 
+                    </aside> 
                     <!-- current weather here -->
-                    <div class="col-sm-9" id="weather-container">
-                        <div class="card" id="current-weather">
+                    <section class="col-sm-9" id="weather-container">
+                        <section class="card" id="current-weather">
                             <div class="row" id="current-display-top">
                                 <div class="city"></div>&nbsp;
                                 <div id="current-day"></div>&nbsp;
@@ -42,18 +43,18 @@
                             <div id="uvi">UV Index:</div> 
                             <div id="lat"></div>
                             <div id="lon"></div>
-                        </div>
+                        </section>
                         <br> 
                         <!-- forecast here -->
-                        <h5 id="five-day">5-Day Forecast</h5>  
-                        <div id="weatherForecast"></div>
-
-                    </div>
-                </div>             
-            </div>
-        </div>  
+                        <section>
+                            <div id="five-day"></div>  
+                            <div id="weatherForecast"></div>
+                        </section>
+                    </section>
+                </section>             
+            </main>
+        </section>  
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="./assets/js/script.js"></script>       
     </body>
-</html>  
-
+</html> 

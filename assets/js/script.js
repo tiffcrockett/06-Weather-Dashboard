@@ -7,10 +7,10 @@ $(document).ready(function() {
         if(cityHistory[i]) {
             $("ul").append("<li>" + cityHistory[i] + "</li>"); 
         };  
-    };
-    
+    }; 
+
     $("#current-weather").hide();
-    $("#five-day").hide();
+    $("#five-day").hide(); 
 
         $("#add-city").on("click", function(event){
             event.preventDefault(); 
@@ -26,7 +26,6 @@ $(document).ready(function() {
             displayWeather(pastCity);
         }); 
 
-
         function displayWeather(city){
 
             var queryURL = "https://api.openweathermap.org/data/2.5/weather/?q=" + city + "&units=imperial&appid=12453634a0c3823fc0a03953fcfff02b";
@@ -37,7 +36,7 @@ $(document).ready(function() {
             }).then(function(response) { 
                 console.log(response);
 
-                $(".city").html("<h3>" + response.name + " Weather Details</h3>\r\n"); 
+                $(".city").html("<h4>" + response.name + " Weather Details</h4>\r\n"); 
                 $("#current-day").text(new Date(response.dt*1000).toLocaleDateString('en-US', {weekday: 'long'}));
                 $("#wicon").attr("src",`http://openweathermap.org/img/wn/` + response.weather[0].icon +".png");
                 $("#tempF").text("Temperature (F): " + (Math.round(response.main.temp)));
@@ -89,9 +88,7 @@ $(document).ready(function() {
                 $("ul").append("<li>" + city + "</li>");  
                 var storedCities = [city, cityHistory];
                 localStorage.setItem("cityHistory", storedCities);
-            }     
-            
-        }); 
+            }   
 
             var uvi= $("#uvi").val();
             if(uvi > 11) {
@@ -104,6 +101,13 @@ $(document).ready(function() {
                 $("#uvi").css({"background-color":"#f4d03f"});
             } else {
                 $("#uvi").css({"background-color":"#27ae60", "color":"#fff"});
-            };  
-    }; 
+            };
+
+        });
+    }
+
+    $("#clear").on("click", function(){
+        localStorage.clear();
+    })
+
 });
