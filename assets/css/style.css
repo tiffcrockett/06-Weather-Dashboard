@@ -6,17 +6,18 @@
 
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
-    background-color: #a8bd90;
 } 
 
 .main-card { 
-    margin-top: 150px;
-    height: 900px;
-    width: 1200px;
+    margin: 0 auto;
+    padding: 3px;
+    max-width: 768px;
+    height: auto;
 }
 
-#card-header { 
+.dash-header { 
     width: 100%;
+    margin-top: 5px;
     height: 80px;
     text-align: center;
     padding-top: 20px ; 
@@ -24,36 +25,43 @@ body {
     color: #ffff;
 } 
 
+#dashboard {
+    display: flex;
+}
+
 #aside { 
-    width:435px;
-    height:650px;
+    width: 100%;
+    height:auto;
     padding-top: 15px;
     background-color: #bdbdbd;
     font-size: small;
 }  
 
-#city-input {
-    padding-left: 15px;
+#city-input { 
+    width: 80%;
     cursor: pointer;
+    padding-left: 5px;
 }
 
 #add-city {
     background-color: #4381dd;
     color:#fff;
     cursor: pointer;
+    padding: 2px;
     margin-left: 3px;
+    margin-top: 3px;
 }
 
 ul {
     list-style-type: none;
-    padding-left: 20px;
+
 }
 
 ul li { 
     list-style-type: none;
-    margin: 10px;
-    padding: 10px 0 10px 20px; 
-    width: 300px;
+    margin-top: 10px;
+    padding: 10px 0 10px 10px; 
+    width: 100%;
     height: 40px;
     background-color: #ffff;
     border: 1px #adadad;
@@ -61,28 +69,29 @@ ul li {
 
 li:hover {
     cursor:pointer;
-} 
+}  
 
 #weather-container {
-    background-color: #ffff;
+    background-color:#e9d182;
 }
 
 #current-weather { 
-    padding: 30px 25px;
-    width: 765px;
-    height: 400px;
+    margin-top: 10px;
+    padding: 25px;
+    width: 100%;
+    height: auto;
     line-height: 35px;
-    background-color: #e9d182;
+    background-color: #e9d182; 
+    border: none;
 }  
 
 #current-display-top {
     display: flex;
-    padding: 15px;
 }
 
 #current-day{
     font-size: 14px;
-} 
+}  
 
 #uvi {
     text-align: center;
@@ -90,22 +99,131 @@ li:hover {
     padding: 5px;
 }  
 
-#weatherForecast {
-    display: flex;
-}  
+.day {
+    width: 100%;
+    text-align:center
+}
 
 .daily {
-    margin: 7px;
+    margin: 3px;
+    font-size: smaller;
 }
 
+@media only screen and (min-width: 768px) {   
 
-@media (max-width: 568px) {  
-
-    #card-header {
-        text-align: left;
+    .main-card {
+        padding: 0;
     }
 
-	#aside { 
-		width: 600px;
-	} 
-}
+    #current-weather { 
+        padding: 25px 0 10px 25px;
+        width: 100%;
+        height: auto;
+        line-height: 35px;
+        background-color: #e9d182;
+        border: none;
+    }  
+
+    #weather-container {
+        margin: 0px;
+        padding-bottom: 15px;
+        background-color: #e9d182;
+    }
+
+    #weatherForecast {
+        display: flex;
+    }  
+
+    .day {
+        font-size: 9px;
+        width: 97px;
+    } 
+
+    .weekday {
+        font-size: 10px;
+    }
+
+@media only screen and (min-width: 1024px) {  
+
+    .main-card {
+        max-width: 992px; 
+        margin: 0 auto;
+        padding: 3px;
+    }  
+    .dash-header {
+        margin-top: 50px;
+    }
+
+    .daily { 
+        margin :5px;
+    } 
+
+    .day {
+        font-size: 12px;
+        width: 125px;
+    } 
+
+    .weekday {
+        font-size: 16px;
+    } 
+
+@media only screen and (min-width: 1200px) {   
+
+    .main-card {
+        max-width: 1200px; 
+        margin: 0 auto;
+        padding: 3px;
+    } 
+    
+    .dash-header { 
+        margin-top: 50px;
+    } 
+    
+    #dashobard {
+        display: flex;
+    } 
+
+    #aside {
+        width: 350px;
+    } 
+
+    #city-input {
+        width: 185px;
+    } 
+
+    #add-city { 
+        margin-top: 3px;
+    } 
+  
+    #current-weather { 
+        padding: 25px 0 10px 25px;
+        /* width: 100%; */
+        height: auto;
+        line-height: 35px;
+        background-color: #e9d182;
+        border: none;
+    }  
+
+    #weather-container {
+        margin: 0px;
+        padding-bottom: 15px;
+        background-color: #e9d182;
+    }
+
+    #weatherForecast {
+        display: flex;
+    }   
+
+    .daily { 
+        margin :5px;
+    } 
+
+    .day {
+        font-size: 12px;
+        width: 152px;
+    } 
+
+    .weekday {
+        font-size: 18px;
+    } 
+}}};

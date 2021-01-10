@@ -14,13 +14,13 @@
         <div class="container">
             <main class="main-card">
                 <div class="row"> 
-                    <div class="col-md-12" id="card-header"><h2>Weather Dashboard</h2></div>
+                    <div class= "dash-header"><h4>Weather Dashboard</h4></div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4" id="aside"> 
+                <div class="row" id="dashboard">
+                    <div class="col-sm-3" id="aside"> 
                         <form class="form-inline" name="input-city-name">
                             <label for="city-input">Search for a City:&nbsp </label>
-                                <input type="text" id="city-input" name="listCity" style="width: 210px;"/>&nbsp;
+                                <input type="text" id="city-input" name="listCity"/>&nbsp;
                                 <!-- button to trigger AJAX call -->
                                 <input id="add-city" type="submit" value="Search">
                         </form> 
@@ -28,10 +28,10 @@
                         <ul id="city-list"></ul>     
                     </div> 
                     <!-- current weather here -->
-                    <div class="col-md-8" id="weather-container">
+                    <div class="col-sm-9" id="weather-container">
                         <div class="card" id="current-weather">
                             <div class="row" id="current-display-top">
-                                <h1 class="city"></h1>&nbsp;
+                                <div class="city"></div>&nbsp;
                                 <div id="current-day"></div>&nbsp;
                                 <div id="icon"><img id="wicon" src="" alt="weather icon"></div>&nbsp;
                             </div> 

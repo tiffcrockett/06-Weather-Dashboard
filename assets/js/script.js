@@ -37,7 +37,7 @@ $(document).ready(function() {
             }).then(function(response) { 
                 console.log(response);
 
-                $(".city").html("<h3>" + response.name + " Weather Details</h3>"); 
+                $(".city").html("<h3>" + response.name + " Weather Details</h3>\r\n"); 
                 $("#current-day").text(new Date(response.dt*1000).toLocaleDateString('en-US', {weekday: 'long'}));
                 $("#wicon").attr("src",`http://openweathermap.org/img/wn/` + response.weather[0].icon +".png");
                 $("#tempF").text("Temperature (F): " + (Math.round(response.main.temp)));
@@ -51,9 +51,6 @@ $(document).ready(function() {
                 var queryURL2 = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&cnt=6&units=imperial&appid=12453634a0c3823fc0a03953fcfff02b";    
                 console.log(queryURL2)
                 
-                // var queryURL2 = "https://api.openweathermap.org/data/2.5/forecast/daily/?q=" + city + "&units=imperial&cnt=6&appid=12453634a0c3823fc0a03953fcfff02b";           
-                // console.log(queryURL2)
-
                 $.ajax({ 
                     url:queryURL2,
                     method: "GET", 
@@ -65,11 +62,11 @@ $(document).ready(function() {
                     for(var i = 1; i < 6; i++) {
 
                     var displayDiv = $("<div>").addClass("daily");
-                    var card = $("<div>").addClass("card bg-primary text-white");
+                    var card = $("<div>").addClass("card bg-primary text-white day");
                     var cardBody = $("<div>").addClass("card-body");
-                    var date = $("<h4></h4>").addClass("card-text").text(new Date(response.daily[i].dt*1000).toLocaleDateString('en-Us', {weekday: 'long'}));
+                    var date = $("<h6></h6>").addClass("card-text weekday").text(new Date(response.daily[i].dt*1000).toLocaleDateString('en-Us', {weekday: 'long'}));
                     var icon = $("<img>").attr("src","http://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon +".png");
-                    var temp = $("<div>").addClass("card-text").text(Math.round(response.daily[i].temp.day) + " Degrees F");
+                    var temp = $("<div>").addClass("card-text").text(Math.round(response.daily[i].temp.day) + " Deg F");
                     var humid = $("<div>").addClass("card-text").text(response.daily[i].humidity + "% Humidity");
 
                     // * append elements to weatherForecast div
