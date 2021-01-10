@@ -75,8 +75,21 @@ $(document).ready(function() {
                     $("#weatherForecast").append(displayDiv); 
 
                     $("#current-weather").show();
-                    $("five-day").show();
-                    }; 
+                    $("five-day").show(); 
+                    };    
+                    
+                    var uvi= $("#uvi").val();
+                    if(uvi > 11) {
+                        $("#uvi").css({"background-color":"#8e44ad", "color":"#fff"});
+                    } else if (uvi > 7 && uvi < 11) {
+                        $("#uvi").css({"background-color":"#e74c3c", "color":"#fff"});
+                    } else if (uvi > 5 && uvi < 9 ){
+                        $("#uvi").css({"background-color":"#f39c12"});
+                    } else if (uvi > 2 && uvi < 7) {
+                        $("#uvi").css({"background-color":"#f4d03f"});
+                    } else {
+                        $("#uvi").css({"background-color":"#27ae60", "color":"#fff"});
+                    };
 
                 }); 
 
@@ -89,25 +102,12 @@ $(document).ready(function() {
                 var storedCities = [city, cityHistory];
                 localStorage.setItem("cityHistory", storedCities);
             }   
-
-            var uvi= $("#uvi").val();
-            if(uvi > 11) {
-                $("#uvi").css({"background-color":"#8e44ad", "color":"#fff"});
-            } else if (uvi > 7 && uvi < 11) {
-                $("#uvi").css({"background-color":"#e74c3c", "color":"#fff"});
-            } else if (uvi > 5 && uvi < 9 ){
-                $("#uvi").css({"background-color":"#f39c12"});
-            } else if (uvi > 2 && uvi < 7) {
-                $("#uvi").css({"background-color":"#f4d03f"});
-            } else {
-                $("#uvi").css({"background-color":"#27ae60", "color":"#fff"});
-            };
-
-        });
-    }
-
-    $("#clear").on("click", function(){
-        localStorage.clear();
-    })
+                
+        }); 
+    
+        // $("#clear").on("click", function(){
+        // localStorage.clear();
+        // })
+    };
 
 });
