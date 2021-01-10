@@ -102,12 +102,11 @@ $(document).ready(function() {
                 var storedCities = [city, cityHistory];
                 localStorage.setItem("cityHistory", storedCities);
             }   
-                
-        }); 
-    
-        // $("#clear").on("click", function(){
-        // localStorage.clear();
-        // })
-    };
+        });  
 
+        // $("#clear").on("click", function(){
+        //     window.localStorage.clear(); 
+        //     window.location.reload();
+        // });
+    }; 
 });
