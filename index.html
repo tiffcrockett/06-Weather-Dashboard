@@ -2,10 +2,8 @@
 <html lang="en"> 
     <head>
         <title>Weather Dashboard</title>
-        <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
         <link rel="stylesheet" href="./assets/css/style.css"> 
     </head>
@@ -20,15 +18,11 @@
                         <form class="form-inline" name="input-city-name">
                             <label for="city-input">Search for a City:&nbsp </label>
                                 <input type="text" id="city-input" name="listCity">
-                                <!-- button to trigger AJAX call -->
                                 <button id="add-city" type="submit">Search</i></button>
-                                <!-- reset- clear local storage -->
                                 <button id="clear" type="clear" onclick="localStorage.clear();">Clear History</button>
                         </form> 
-                        <!-- city names go here -->
                         <ul id="city-list"></ul>     
                     </aside> 
-                    <!-- current weather here -->
                     <section class="col-sm-9" id="weather-container">
                         <section class="card" id="current-weather">
                             <div class="row" id="current-display-top">
@@ -45,7 +39,6 @@
                             <div id="lon"></div>
                         </section>
                         <br> 
-                        <!-- forecast here -->
                         <section>
                             <div id="five-day"></div>  
                             <div id="weatherForecast"></div>

@@ -1,4 +1,3 @@
-
 $(document).ready(function() {  
 
     var cityHistory = (localStorage.getItem("cityHistory") || "").split(",");
@@ -18,13 +17,20 @@ $(document).ready(function() {
             var searchedCity = $("#city-input").val().trim(); 
             $("#weatherForecast").empty();
             displayWeather(searchedCity); 
+
+            $("ul li").on("click", function(){
+                var pastCity = $(this).text();
+                $("#weatherForecast").empty();
+                displayWeather(pastCity);
+            })
+
         });  
 
         $("ul li").on("click", function(){
             var pastCity = $(this).text();
             $("#weatherForecast").empty();
             displayWeather(pastCity);
-        }); 
+        });
 
         function displayWeather(city){
 
@@ -103,10 +109,5 @@ $(document).ready(function() {
                 localStorage.setItem("cityHistory", storedCities);
             }   
         });  
-
-        // $("#clear").on("click", function(){
-        //     window.localStorage.clear(); 
-        //     window.location.reload();
-        // });
     }; 
 });
