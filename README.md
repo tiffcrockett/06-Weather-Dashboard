@@ -8,6 +8,8 @@
 * [Technologies-Used](#technologies-used)
 * [Deployed-Link](#deployed-link)
 * [License](#license)
+* [Contact Information](#contact)
+
 
 ## Description
 
@@ -51,4 +53,8 @@ https://tiffcrockett.github.io/06-Weather-Dashboard/
 
 ## License
 
-Licensed under [MIT](https://choosealicense.com/licenses/mit/) license.
+Licensed under [MIT](https://choosealicense.com/licenses/mit/) license.  
+
+## Contact
+
+crockett.tiff@gmail.com
