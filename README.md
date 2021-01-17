@@ -28,7 +28,7 @@ The current design is flat.  Aesthetic enhancements would be future improvements
 ![Screenshot of desktop webpage](https://github.com/tiffcrockett/06-Weather-Dashboard/blob/main/assets/images/Dashboard-desktop.png?)
 
 ### Mobile Screenshot
-![Screenshot of mobile webpage](https://github.com/tiffcrockett/06-Weather-Dashboard/blob/main/assets/images/Dashboard-mobile.png?)
+![Screenshot of mobile webpage](https://github.com/tiffcrockett/06-Weather-Dashboard/blob/main/assets/images/weathrscrn.png?)
 
 ## Installation
 
