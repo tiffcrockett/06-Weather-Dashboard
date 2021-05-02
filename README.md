@@ -51,7 +51,8 @@ No prior installation is required to properly use the Weather Dashobard applicat
 
 ## Deployed-Link
 
-https://tiffcrockett.github.io/06-Weather-Dashboard/
+https://tiffcrockett.github.io/weather-dashboard/
+
 
 ## License
 
